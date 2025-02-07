@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AiBit NFT Data Base",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "string",
+        "format": "uuid",
+        "coerce": true
+      },
+      "fitbitid": {
+        "type": "string"
+      },
+      "dateofupdate": {
+        "type": "object",
+        "properties": {
+          "$share": {
+            "type": "string"
+          }
+        },
+        "required": ["$share"]
+      },
+      "level": {
+        "type": "object",
+        "properties": {
+          "$share": {
+            "type": "string"
+          }
+        },
+        "required": ["$share"]
+      }
+    },
+    "required": ["_id","fitbitid", "dateofupdate", "level"],
+    "additionalProperties": false
+  }
+}
