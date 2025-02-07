@@ -29,6 +29,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "express": "^4.21.2",
     "nillion-sv-wrappers": "^1.0.4"
   },
   "devDependencies": {
