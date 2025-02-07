@@ -12,18 +12,24 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
   const allowedOrigins = [
     "https://aibit-front-ic06d.kinsta.page",
-    "https://localhost:8888" // Keep for local development
+    "https://localhost:8888",
+    "https://aibit-front.vercel.app", // Vercel frontend
+    "https://nillion-pi.vercel.app" // Nillion backend
   ];
   
   const origin = req.headers.origin;
+  
+  // If origin is in allowed origins, set it. Otherwise, allow all for GET requests
   if (allowedOrigins.includes(origin)) {
     res.header("Access-Control-Allow-Origin", origin);
+  } else if (req.method === "GET") {
+    res.header("Access-Control-Allow-Origin", "*");
   }
   
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type, Accept, fitbitid"
   );
 
   // Handle preflight requests
